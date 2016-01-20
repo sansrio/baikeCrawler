@@ -23,6 +23,14 @@ public class TemplateData {
 	private static String outputPath;
 	private static int number = 5000;
 	
+	private static void exit_with_help()
+	{
+		System.out.print(
+		 "Usage: java -jar xxx inputfileFolder outputfile\n"
+		);
+		System.exit(1);
+	}
+	
 	public int process(File pagefile) throws IOException {
 		String title = pagefile.getName();
 		if (title.contains("（")) {
@@ -107,7 +115,9 @@ public class TemplateData {
 		TemplateData templateData = new TemplateData();
 		String floderPath = args[0];
 		outputPath = args[1];
-		System.out.println(outputPath);
+		if (args.length != 2) {
+			exit_with_help();
+		}
 		File fileFloder = new File(floderPath);
 		if (fileFloder.isDirectory()) {
 			File[] pagefile = fileFloder.listFiles();
