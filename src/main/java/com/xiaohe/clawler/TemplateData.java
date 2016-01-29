@@ -23,8 +23,7 @@ public class TemplateData {
 	private static String outputPath;
 	private static int number = 5000;
 	
-	private static void exit_with_help()
-	{
+	private static void exit_with_help(){
 		System.out.print(
 		 "Usage: java -jar xxx inputfileFolder outputfile\n"
 		);
